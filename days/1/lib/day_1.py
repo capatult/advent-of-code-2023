@@ -5,3 +5,7 @@ def parse_single_line(line):
 
 def parse_document(document):
     return sum(parse_single_line(line) for line in document.split("\n"))
+
+if __name__ == "__main__":
+    with open("../puzzle_input.txt") as puzzle_input:
+        print(parse_document(puzzle_input.read()))
