@@ -45,7 +45,7 @@ def test_single_line_with_words_parses_correctly():
         assert parse_single_line_with_words(line) == expected
 
 def test_calibration_document_with_words_parses_correctly():
-    document = "\n".join(
+    document = "\n".join((
         "two1nine",
         "eightwothree",
         "abcone2threexyz",
@@ -53,4 +53,7 @@ def test_calibration_document_with_words_parses_correctly():
         "4nineeightseven2",
         "zoneight234",
         "7pqrstsixteen",
-    )
+    ))
+    assert parse_document_with_words(document) == sum((
+        29, 83, 13, 24, 42, 14, 76,
+    ))
