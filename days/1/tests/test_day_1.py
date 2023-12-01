@@ -30,3 +30,27 @@ def test_calibration_document_parses_correctly():
         "treb7uchet",
     ))
     assert parse_document(document) == 142
+
+def test_single_line_with_words_parses_correctly():
+    test_cases = [
+        ("two1nine", 29),
+        ("eightwothree", 83),
+        ("abcone2threexyz", 13),
+        ("xtwone3four", 24),
+        ("4nineeightseven2", 42),
+        ("zoneight234", 14),
+        ("7pqrstsixteen", 76),
+    ]
+    for line, expected in test_cases:
+        assert parse_single_line_with_words(line) == expected
+
+def test_calibration_document_with_words_parses_correctly():
+    document = "\n".join(
+        "two1nine",
+        "eightwothree",
+        "abcone2threexyz",
+        "xtwone3four",
+        "4nineeightseven2",
+        "zoneight234",
+        "7pqrstsixteen",
+    )
